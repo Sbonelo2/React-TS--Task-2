@@ -19,6 +19,9 @@ export default function MainRec() {
           <NavBar />
           <Rec />
           <Footer />
+          <div>
+              
+          </div>
     </div>
   );
 }

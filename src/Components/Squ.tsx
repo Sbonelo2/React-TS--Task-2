@@ -4,7 +4,7 @@ export default function Squ() {
   return (
     <div
       style={{
-        border: "2px solid green",
+        // border: "2px solid green",
         // backgroundColor: "#2ca855ff",
         height: "200%",
         width: "50%",

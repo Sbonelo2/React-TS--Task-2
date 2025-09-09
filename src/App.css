@@ -26,6 +26,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #5DA3AF;
+  border-radius: 12px
 }
 
 ul li {
@@ -41,7 +42,11 @@ ul li a {
 }
 
 ul li a:hover {
-  background-color: green;
+  background-color: black;
+  border-radius: 12px
+}
+.Form{
+  padding: 10%;
 }
 
 

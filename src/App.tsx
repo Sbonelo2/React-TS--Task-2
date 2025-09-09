@@ -1,14 +1,20 @@
 import './App.css'
 import Windows from './Components/Windows'
 
+
 function App() {
   
 
   return (
     <>
-      <Windows/>
+      <Windows />
+      <div>
+        
+        
+        
+      </div>
     </>
-  )
+  );
 }
 
 export default App
