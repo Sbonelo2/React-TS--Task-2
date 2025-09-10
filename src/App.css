@@ -24,49 +24,61 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: #5DA3AF;
-  border-radius: 12px
-}
-
-ul li {
-  float: left;
-}
-
-ul li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul li a:hover {
+  /* overflow: hidden;
   background-color: black;
-  border-radius: 12px
-}
-.Form{
-  padding: 10%;
+  border-radius: 12px */
 }
 
 
 
 
 
-
-/* nav{
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  float: left;
-  list-style-type: none;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
+.Search{
+  border-radius: 20px;
   
 }
-ul li a:hover{
-   background-color: #111111;
-} */
+a{
+color: white;
+text-decoration: none;
+justify-content: space-between;
+ /* border-bottom: ; */
+}
+.BtnAdd{
+  background-color: #148019;
+  border-radius: 10px;
+  padding: 10%;
+  color: aliceblue;
+}
+.BtnDel{
+   background-color: red;
+  border-radius: 10px;
+  padding: 10%;
+  color: aliceblue;
+}
+.BtnEdit{
+   background-color: #62A3AE;
+  border-radius: 10px;
+  padding: 10%;
+  color: aliceblue;
+}
+.BtnSave{
+   background-color: #148019;
+  border-radius: 10px;
+  padding: 12%;
+  color: aliceblue;
+}
+
+.Nav:hover{
+ border-bottom: 2px solid rgb(133, 8, 95);
+ background-color: aqua;
+ cursor: pointer;
+transition: all 0.3s ease;
+/* border-bottom: 2px blue; */
+
+}
+
+.ThreeButtons{
+  display: flex;
+  justify-content: space-around;
+
+}

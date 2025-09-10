@@ -1,34 +1,38 @@
 import React from 'react'
 
-export default function nav() {
+export default function Nav() {
   return (
-    <div
+    <div className='Nav'
       style={{
         // border: "2px solid purple",
-        // backgroundColor: "#2ca855ff",
-        height: "1%",
+        backgroundColor: "black",
+        // height: "1%",
         width: "100%",
         // borderRadius: "12px",
-        padding: "3%",
-        // borderRadius: "12px",
+        padding: "2%",
+        borderRadius: "12px",
+        color: "white",
+        display: "flex",
+        justifyContent: "space-around",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+        // boxShadow: "0 0 10px #290c44ff",
+      //  borderBottom: "2px solid blue"
+        
+
+       
+        
+
+         
+        
+        
         
       }}
     >
-      <ul>
-        <li>
-          <a href="#HOME">HOME</a>
-        </li>
-        <li>
+         <a href="#HOME">HOME</a>
           <a href="#ABOUT US">ABOUT US</a>
-        </li>
-        <li>
           <a href="#PORTFOLIO">PORTFOLIO</a>
-        </li>
-        <li>
           <a href="#SERVICES">SERVICES</a>
-          {/* <a href="#CONTACT US">CONTACT US</a> */}
-        </li>
-      </ul>
     </div>
   );
 }
