@@ -1,6 +1,6 @@
-import React from 'react'
-import Square from './Square';
-import Squ from './Squ';
+import React from "react";
+import Square from "./Square";
+import Squ from "./Squ";
 
 export default function Rec() {
   return (

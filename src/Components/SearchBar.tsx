@@ -4,7 +4,7 @@ interface Props {
 export default function input({ text }: Props) {
   return (
     <div>
-      <input type="text" name="Search" placeholder={text}></input>
+      <input className="SearchBar" type="text" name="Search" placeholder={text}></input>
     </div>
   );
 }

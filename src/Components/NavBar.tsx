@@ -6,7 +6,7 @@ export default function Nav() {
       style={{
         // border: "2px solid purple",
         backgroundColor: "black",
-        // height: "1%",
+        height: "5%",
         width: "100%",
         // borderRadius: "12px",
         padding: "2%",
@@ -17,7 +17,10 @@ export default function Nav() {
         cursor: "pointer",
         transition: "all 0.3s ease",
         // boxShadow: "0 0 10px #290c44ff",
-      //  borderBottom: "2px solid blue"
+        //  borderBottom: "2px solid blue"
+        marginBottom: "1%",
+       marginLeft: "10%"
+        
         
 
        

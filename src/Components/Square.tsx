@@ -8,14 +8,16 @@ export default function Square() {
   return (
     <div
       style={{
-        border: "2px solid green",
+        // border: "2px solid green",
         // backgroundColor: "#2ca855ff",
-        height: "200%",
-        width: "50%",
+        height: "100%",
+        width: "100%",
         // borderRadius: "12px",
         padding: "3%",
         // borderRadius: "12px",
-        // marginTop: "3%"
+        // marginTop: "3%",
+        marginRight: "2%",
+        marginLeft: "5%",
       }}
     >
       <div>

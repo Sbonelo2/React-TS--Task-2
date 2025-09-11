@@ -35,8 +35,8 @@ ul {
 
 .Search{
   border-radius: 20px;
-  
 }
+
 a{
 color: white;
 text-decoration: none;
@@ -68,17 +68,33 @@ justify-content: space-between;
   color: aliceblue;
 }
 
-.Nav:hover{
+.Nav a :hover{
  border-bottom: 2px solid rgb(133, 8, 95);
- background-color: aqua;
+ /* background-color: aqua; */
  cursor: pointer;
-transition: all 0.3s ease;
+/* transition: all 0.3s ease; */
+ display: block;
 /* border-bottom: 2px blue; */
-
 }
 
 .ThreeButtons{
   display: flex;
   justify-content: space-around;
+ 
+  
 
+}
+.foot{
+  margin-left: 40%;
+}
+.Nav{
+/* width: 100%;
+height: 5%; */
+}
+.Footer{
+
+}
+.SearchBar{
+  border-radius: 12px;
+  color: black;
 }
