@@ -19,9 +19,7 @@ export default function Squ() {
       }}
     >
       <div>
-        <div className="Search">
-          <SearchBar text="Search" /> <br />
-        </div>
+       
       </div>
     </div>
   );
