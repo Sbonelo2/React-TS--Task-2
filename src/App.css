@@ -87,14 +87,15 @@ justify-content: space-between;
 .foot{
   margin-left: 40%;
 }
-.Nav{
-/* width: 100%;
-height: 5%; */
-}
+
 .Footer{
 
 }
 .SearchBar{
   border-radius: 12px;
   color: black;
+}
+.Nav a:hover{
+  background-color:#5DA3AF ;
+  box-shadow: #62A3AE;
 }

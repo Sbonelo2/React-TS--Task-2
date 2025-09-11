@@ -6,20 +6,22 @@ export default function Nav() {
       style={{
         // border: "2px solid purple",
         backgroundColor: "black",
-        height: "5%",
+        height: "1%",
         width: "100%",
+        borderRadius: "3px",
+          padding: "2rem",
         // borderRadius: "12px",
-        padding: "2%",
-        borderRadius: "12px",
         color: "white",
         display: "flex",
         justifyContent: "space-around",
         cursor: "pointer",
-        transition: "all 0.3s ease",
+        // transition: "all 0.3s ease",
         // boxShadow: "0 0 10px #290c44ff",
         //  borderBottom: "2px solid blue"
-        marginBottom: "1%",
-       marginLeft: "10%"
+        // marginBottom: "1%",
+        //  marginLeft: "10%",
+        // marginBottom: "2%",
+        marginTop: "1%"
         
         
 

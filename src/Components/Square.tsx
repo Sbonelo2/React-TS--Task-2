@@ -17,17 +17,11 @@ export default function Square() {
         // borderRadius: "12px",
         // marginTop: "3%",
         marginRight: "2%",
-        marginLeft: "5%",
+        marginLeft: "1%",
       }}
     >
       <div>
-        <div className="input">
-          <Input text="Tag" /> <br />
-          <Input text="Title" /> <br />
-          <Input text="Link" /> <br />
-          <Input text="Description" /> <br />
-        </div>
-
+        
         <div
           className="ThreeButtons"
           style={{
@@ -36,10 +30,10 @@ export default function Square() {
             width: "100%",
           }}
         >
-          <BtnAdd />
+          {/* <BtnAdd />
           <Btnedit />
           <BtnDel />
-          <BtnSaveChanges />
+          <BtnSaveChanges /> */}
         </div>
       </div>
     </div>

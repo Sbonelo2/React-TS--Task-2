@@ -1,35 +1,29 @@
-import React from 'react'
-import MainRec from './MainRec';
-import NavBar from './NavBar'
-import Footer from './Footer';
-
-export default function Windows() {
+import React from "react";
+import Rec from "./Rec";
+import NavBar from "./NavBar";
+import Footer from "./Footer.tsx";
+import Table from "./Table.tsx";
+export default function MainRec() {
   return (
     <div
       style={{
-        // backgroundColor: "#0f7accff",
-        border: "3px solid red",
-        width: "100%",
+        // border: "2px solid black",
+        backgroundColor: "",
         height: "100%",
-        padding: "7%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        width: "100%",
+        borderRadius: "12px",
+        // padding: "3%",
+        // borderRadius: "12px",
+        marginTop: "1%",
+        marginRight: "30%",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          height: "100%",
-          width: "400%",
-        }}
-      >
-        {/* <NavBar /> */}
-        <MainRec />
-     
-      
-        
-      </div>
+      <NavBar />
+      <Table />
+      <Rec />
+      <Footer />
+      {/* <Footer /> */}
+      <div></div>
     </div>
   );
 }
