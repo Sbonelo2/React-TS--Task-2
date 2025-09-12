@@ -507,13 +507,13 @@ body {
   white-space: nowrap;
 }
 
-/* Buttons */
+
 .action-buttons {
   display: flex;
   gap: 8px;
 }
 
-/*Card Styles */
+
 .mobile-cards {
   padding: 16px;
   display: none;
@@ -563,7 +563,7 @@ body {
   margin-left: 12px;
 }
 
-/* Responsive  */
+
 @media (max-width: 1023px) {
   .links-table {
     display: none;
@@ -596,7 +596,7 @@ body {
   }
 }
 
-/* Animation Classes */
+
 .fade-in {
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -612,7 +612,7 @@ body {
   }
 }
 
-/* Utility Classes */
+
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -631,14 +631,14 @@ body {
   border: 0;
 }
 
-/* Focus Styles for Accessibility */
+
 .btn:focus-visible,
 .input-field:focus-visible {
   outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
 
-/* Print Styles */
+
 @media print {
   .btn,
   .action-buttons {
