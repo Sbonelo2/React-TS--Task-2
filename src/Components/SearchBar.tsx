@@ -1,10 +1,13 @@
-interface Props {
-  text: string;
-}
-export default function input({ text }: Props) {
+import React from "react";
+
+export default function SearchBar({ text }: { text: string }) {
   return (
-    <div>
-      <input className="SearchBar" type="text" name="Search" placeholder={text}></input>
-    </div>
+    <input
+      className="SearchBar"
+      type="text"
+      name="search"
+      placeholder={text}
+      style={{ marginLeft: "1rem", padding: "0.5rem" }}
+    />
   );
 }

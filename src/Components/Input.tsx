@@ -1,19 +1,22 @@
 import React from "react";
-import Table from "./Table";
+
 interface Props {
+  name: string;
   text: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-export default function Input({ text, value, onChange }: Props) {
+
+export default function Input({ name, text, value, onChange }: Props) {
   return (
     <div>
       <input
         type="text"
-        name={text.toLowerCase()}
+        name={name}
         placeholder={text}
         value={value}
         onChange={onChange}
+        style={{ margin: "0.5rem", padding: "0.5rem" }}
       />
     </div>
   );

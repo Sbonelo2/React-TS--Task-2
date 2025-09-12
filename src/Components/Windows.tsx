@@ -1,6 +1,7 @@
 import React from "react";
 import Rec from "./Rec";
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
+import Nav from "./Nav.tsx";
 import Footer from "./Footer.tsx";
 import Table from "./Table.tsx";
 export default function MainRec() {
@@ -18,7 +19,8 @@ export default function MainRec() {
         marginRight: "30%",
       }}
     >
-      <NavBar />
+      {/* <NavBar /> */}
+      <Nav />
       <Table />
       <Rec />
       <Footer />
