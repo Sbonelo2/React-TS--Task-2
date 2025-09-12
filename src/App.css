@@ -129,9 +129,9 @@ justify-content: space-between;
 
 
 
-/* Links Vault CSS Styles */
 
-/* Base Styles */
+
+
 * {
   margin: 0;
   padding: 0;
@@ -144,7 +144,7 @@ body {
   color: #374151;
 }
 
-/* Container Styles */
+
 .links-vault-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
@@ -156,7 +156,7 @@ body {
   margin: 0 auto;
 }
 
-/* Header Styles */
+
 .links-vault-header {
   text-align: center;
   margin-bottom: 32px;
@@ -201,7 +201,7 @@ body {
   height: 64px;
 }
 
-/* Form Styles */
+
 .form-section {
   background: #ffffff;
   border-radius: 16px;
@@ -247,7 +247,7 @@ body {
   grid-column: 1 / -1;
 }
 
-/* Input Styles */
+
 .input-group {
   margin-bottom: 16px;
 }
@@ -287,7 +287,7 @@ body {
   min-height: 72px;
 }
 
-/* Button Styles */
+
 .btn-group {
   display: flex;
   gap: 12px;
@@ -361,7 +361,7 @@ body {
   background-color: #fef2f2;
 }
 
-/* Empty State */
+
 .empty-state {
   text-align: center;
   padding: 64px 0;
@@ -387,7 +387,7 @@ body {
   color: #6b7280;
 }
 
-/* Links Table Container */
+
 .links-container {
   background: #ffffff;
   border-radius: 16px;
@@ -411,7 +411,7 @@ body {
   gap: 8px;
 }
 
-/* Table Styles */
+
 .links-table {
   width: 100%;
   border-collapse: collapse;
@@ -457,7 +457,7 @@ body {
   vertical-align: top;
 }
 
-/* Tag Styles */
+
 .tag {
   display: inline-flex;
   align-items: center;
@@ -469,7 +469,7 @@ body {
   color: #1e40af;
 }
 
-/* Link Styles */
+
 .external-link {
   display: inline-flex;
   align-items: center;
@@ -507,13 +507,13 @@ body {
   white-space: nowrap;
 }
 
-/* Action Buttons */
+/* Buttons */
 .action-buttons {
   display: flex;
   gap: 8px;
 }
 
-/* Mobile Card Styles */
+/*Card Styles */
 .mobile-cards {
   padding: 16px;
   display: none;
@@ -563,7 +563,7 @@ body {
   margin-left: 12px;
 }
 
-/* Responsive Design */
+/* Responsive  */
 @media (max-width: 1023px) {
   .links-table {
     display: none;
