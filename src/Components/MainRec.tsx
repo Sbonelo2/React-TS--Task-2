@@ -11,9 +11,15 @@ export default function MainRec() {
     setTriggerSearch(search); // Only filter when button clicked
   };
 
+  // Update search in real-time as user types
+  const handleSearchChange = (value: string) => {
+    setSearch(value);
+    setTriggerSearch(value); // Real-time filtering
+  };
+
   return (
     <div style={{ width: "100%", minHeight: "100vh" }}>
-      <Nav search={search} setSearch={setSearch} handleSearch={handleSearch} />
+      <Nav search={search} setSearch={handleSearchChange} handleSearch={handleSearch} />
       <Table search={triggerSearch} />
       <Footer />
     </div>
