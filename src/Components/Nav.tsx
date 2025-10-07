@@ -1,4 +1,5 @@
 import React from "react";
+import SearchBar from "./SearchBar";
 
 interface NavProps {
   search: string;
@@ -34,21 +35,14 @@ export default function Nav({ search, setSearch, handleSearch }: NavProps) {
       </a>
 
       <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-        <input
-          type="text"
-          placeholder="Search by tag, title, or link..."
+        <SearchBar
+          text="Search by tag, title, or link..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               handleSearch();
             }
-          }}
-          style={{ 
-            padding: "0.5rem", 
-            borderRadius: "4px", 
-            border: "1px solid #ccc",
-            minWidth: "250px"
           }}
         />
         <button
