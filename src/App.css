@@ -644,18 +644,84 @@ body {
   outline-offset: 2px;
 }
 
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
 
-@media print {
-  .btn,
-  .action-buttons {
-    display: none;
-  }
-  
-  .links-vault-container {
-    background: none;
-  }
-  
-  .form-section {
-    display: none;
-  }
+.dark-mode .form-section,
+.dark-mode .links-container,
+.dark-mode .links-table {
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
+.dark-mode .input-field,
+.dark-mode select {
+  background-color: #1f2937;
+  color: #f9fafb;
+  border-color: #4b5563;
+}
+
+.dark-mode .input-field:hover {
+  border-color: #6b7280;
+}
+
+.dark-mode .input-field:focus {
+  border-color: #3b82f6;
+}
+
+.dark-mode .links-table thead {
+  background-color: #1f2937;
+}
+
+.dark-mode .links-table tr:hover {
+  background-color: #4b5563;
+}
+
+.dark-mode .links-table tr:nth-child(even) {
+  background-color: #374151;
+}
+
+.dark-mode .links-table tr:nth-child(odd) {
+  background-color: #3a4553;
+}
+
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode .link-title {
+  color: #f9fafb;
+}
+
+.dark-mode .input-label {
+  color: #f9fafb;
+}
+
+.dark-mode .link-description {
+  color: #d1d5db;
+}
+
+/* Button Styles */
+.btn-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.btn-green:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.btn-red {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+}
+
+.btn-red:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

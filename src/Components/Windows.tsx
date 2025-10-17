@@ -3,7 +3,7 @@ import Rec from "./Rec";
 // import NavBar from "./NavBar";
 import Nav from "./Nav.tsx";
 import Footer from "./Footer.tsx";
-import Table from "./Table.tsx";
+import AdvancedTable from "./AdvancedTable.tsx";
 
 export default function MainRec() {
   const [search, setSearch] = useState("");
@@ -35,7 +35,7 @@ export default function MainRec() {
     >
       {/* <NavBar /> */}
       <Nav search={search} setSearch={handleSearchChange} handleSearch={handleSearch} />
-      <Table search={triggerSearch} />
+      <AdvancedTable search={triggerSearch} />
       <Rec />
       <Footer />
       {/* <Footer /> */}

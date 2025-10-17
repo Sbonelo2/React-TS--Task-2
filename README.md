@@ -1,15 +1,61 @@
-# React TypeScript Task 2
+# React TypeScript Task 2 - Advanced Links Vault 🔗
 
-A modern React application built with TypeScript and Vite, featuring Windows and Table components.
+A professional-grade bookmark management system built with React, TypeScript, and Vite. Features advanced filtering, sorting, dark mode, statistics, and import/export capabilities.
 
-## 🚀 Features
+## 🚀 Core Features
 
 - **React 19.1.1** - Latest React version with improved performance
-- **TypeScript** - Type safety and better developer experience
-- **Vite** - Fast build tool and development server
-- **React Icons** - Comprehensive icon library
+- **TypeScript** - Full type safety and better developer experience
+- **Vite** - Lightning-fast build tool and development server
+- **React Icons** - Comprehensive icon library (FaSortAmountDown, FaMoon, FaSun, etc.)
 - **ESLint** - Code linting and formatting
-- **Hot Module Replacement** - Fast development with instant updates
+- **Hot Module Replacement** - Instant updates during development
+
+## ✨ Advanced Features
+
+### 📂 Category Management
+- 6 pre-defined categories (Work, Personal, Learning, Entertainment, Social, Other)
+- Color-coded category tags for visual organization
+- One-click category filtering
+- Category-based statistics
+
+### 🔍 Smart Search & Filtering
+- Real-time search across all fields
+- Multi-field sorting (Title, Tag, Category, Date)
+- Ascending/descending sort with visual indicators
+- Combined search + category filtering
+- Live result count display
+
+### 💾 Import/Export
+- Export to JSON format
+- Export to CSV for Excel/Sheets
+- Import from JSON backup
+- Automatic date-stamped filenames
+
+### 🎨 Dark Mode
+- Toggle between light and dark themes
+- Persistent preference storage
+- Smooth theme transitions
+- Optimized colors for readability
+
+### 📊 Statistics Dashboard
+- Total links counter
+- Recently added (last 7 days)
+- Category breakdown with color coding
+- Toggleable stats panel
+
+### 🔗 Link Enhancement
+- URL validation before saving
+- Automatic favicon fetching
+- External link safety (opens in new tab)
+- Created date tracking
+
+### 💡 User Experience
+- Form validation with required fields
+- Edit mode with cancel option
+- Confirmation dialogs for deletions
+- Empty state messages
+- Responsive design for all devices
 
 ## 📦 Project Structure
 
