@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import Rec from "./Rec";
-// import NavBar from "./NavBar";
+import { useState } from "react";
 import Nav from "./Nav.tsx";
-import Footer from "./Footer.tsx";
 import AdvancedTable from "./AdvancedTable.tsx";
+import Footer from "./Footer.tsx";
 
 export default function MainRec() {
   const [search, setSearch] = useState("");
@@ -20,26 +18,12 @@ export default function MainRec() {
   };
 
   return (
-    <div
-      style={{
-        // border: "2px solid black",
-        backgroundColor: "",
-        height: "100%",
-        width: "100%",
-        borderRadius: "12px",
-        // padding: "3%",
-        // borderRadius: "12px",
-        marginTop: "1%",
-        marginRight: "30%",
-      }}
-    >
-      {/* <NavBar /> */}
+    <div className="main-container">
       <Nav search={search} setSearch={handleSearchChange} handleSearch={handleSearch} />
-      <AdvancedTable search={triggerSearch} />
-      <Rec />
+      <div className="content-container">
+        <AdvancedTable search={triggerSearch} />
+      </div>
       <Footer />
-      {/* <Footer /> */}
-      <div></div>
     </div>
   );
 }

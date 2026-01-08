@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Input from "./Input";
-import { FaSortAmountDown, FaSortAmountUp, FaChartBar, FaMoon, FaSun, FaTimes, FaFilter } from "react-icons/fa";
+import { FaSortAmountDown, FaSortAmountUp, FaChartBar, FaTimes, FaFilter } from "react-icons/fa";
 
 interface LinkItem {
   id: number;
@@ -21,12 +21,12 @@ type SortField = 'title' | 'tag' | 'createdAt' | 'category';
 type SortOrder = 'asc' | 'desc';
 
 const CATEGORIES = [
-  { name: 'Work', color: '#3b82f6' },
-  { name: 'Personal', color: '#10b981' },
-  { name: 'Learning', color: '#f59e0b' },
-  { name: 'Entertainment', color: '#ec4899' },
-  { name: 'Social', color: '#8b5cf6' },
-  { name: 'Other', color: '#6b7280' },
+  { name: 'Work', color: '#1a202c' },
+  { name: 'Personal', color: '#1a202c' },
+  { name: 'Learning', color: '#1a202c' },
+  { name: 'Entertainment', color: '#1a202c' },
+  { name: 'Social', color: '#1a202c' },
+  { name: 'Other', color: '#1a202c' },
 ];
 
 export default function AdvancedTable({ search }: TableProps) {
@@ -43,12 +43,10 @@ export default function AdvancedTable({ search }: TableProps) {
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [showStats, setShowStats] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
 
   // Load from localStorage
   useEffect(() => {
     const stored = localStorage.getItem("links");
-    const darkModeStored = localStorage.getItem("darkMode");
     if (stored) {
       const parsedLinks = JSON.parse(stored);
       // Migrate old data without category
@@ -59,25 +57,12 @@ export default function AdvancedTable({ search }: TableProps) {
       }));
       setLinks(migratedLinks);
     }
-    if (darkModeStored) setDarkMode(JSON.parse(darkModeStored));
   }, []);
 
   // Save to localStorage whenever links change
   useEffect(() => {
     localStorage.setItem("links", JSON.stringify(links));
   }, [links]);
-
-  // Save dark mode preference
-  useEffect(() => {
-    localStorage.setItem("darkMode", JSON.stringify(darkMode));
-    if (darkMode) {
-      document.body.style.backgroundColor = '#1f2937';
-      document.body.style.color = '#f9fafb';
-    } else {
-      document.body.style.backgroundColor = '';
-      document.body.style.color = '';
-    }
-  }, [darkMode]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -215,7 +200,7 @@ export default function AdvancedTable({ search }: TableProps) {
   };
 
   return (
-    <div className={`links-table-container ${darkMode ? 'dark-mode' : ''}`}>
+    <div className="links-table-container">
       {/* Header with controls */}
       <div style={{ 
         display: 'flex', 
@@ -225,7 +210,7 @@ export default function AdvancedTable({ search }: TableProps) {
         flexWrap: 'wrap',
         gap: '1rem'
       }}>
-        <h2 style={{ margin: 0 }}>🔗 Advanced Links Vault</h2>
+        <h2 style={{ margin: 0, color: '#1a202c', fontSize: '2rem', fontWeight: '800' }}>🔗 Links Vault</h2>
         
         <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
           <button 
@@ -235,60 +220,53 @@ export default function AdvancedTable({ search }: TableProps) {
           >
             <FaChartBar /> Stats
           </button>
-          
-          <button 
-            className="btn btn-secondary"
-            onClick={() => setDarkMode(!darkMode)}
-            title="Toggle Dark Mode"
-          >
-            {darkMode ? <FaSun /> : <FaMoon />}
-          </button>
         </div>
       </div>
 
       {/* Statistics Panel */}
       {showStats && (
         <div style={{
-          backgroundColor: darkMode ? '#374151' : '#f0f9ff',
-          padding: '1.5rem',
-          borderRadius: '12px',
-          marginBottom: '1.5rem',
-          border: `2px solid ${darkMode ? '#4b5563' : '#bfdbfe'}`,
+          backgroundColor: '#f7fafc',
+          padding: '2rem',
+          borderRadius: '16px',
+          marginBottom: '2rem',
+          border: '2px solid #e2e8f0',
+          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
         }}>
-          <h3 style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <h3 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#1a202c', fontSize: '1.25rem', fontWeight: '700' }}>
             <FaChartBar /> Statistics Dashboard
           </h3>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
             <div style={{ 
               padding: '1rem', 
-              backgroundColor: darkMode ? '#1f2937' : 'white',
+              backgroundColor: '#ffffff',
               borderRadius: '8px',
               textAlign: 'center'
             }}>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#3b82f6' }}>{stats.total}</div>
-              <div style={{ color: darkMode ? '#9ca3af' : '#6b7280' }}>Total Links</div>
+              <div style={{ fontSize: '2.5rem', fontWeight: '800', color: '#1a202c' }}>{stats.total}</div>
+              <div style={{ color: '#4a5568', fontSize: '0.875rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Total Links</div>
             </div>
             
             <div style={{ 
               padding: '1rem', 
-              backgroundColor: darkMode ? '#1f2937' : 'white',
+              backgroundColor: '#ffffff',
               borderRadius: '8px',
               textAlign: 'center'
             }}>
               <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#10b981' }}>{stats.recentlyAdded}</div>
-              <div style={{ color: darkMode ? '#9ca3af' : '#6b7280' }}>Added This Week</div>
+              <div style={{ color: '#4a5568' }}>Added This Week</div>
             </div>
             
             {stats.byCategory.filter(c => c.count > 0).map(cat => (
               <div key={cat.name} style={{ 
                 padding: '1rem', 
-                backgroundColor: darkMode ? '#1f2937' : 'white',
+                backgroundColor: '#ffffff',
                 borderRadius: '8px',
                 textAlign: 'center'
               }}>
                 <div style={{ fontSize: '2rem', fontWeight: 'bold', color: cat.color }}>{cat.count}</div>
-                <div style={{ color: darkMode ? '#9ca3af' : '#6b7280' }}>{cat.name}</div>
+                <div style={{ color: '#4a5568' }}>{cat.name}</div>
               </div>
             ))}
           </div>
@@ -298,16 +276,17 @@ export default function AdvancedTable({ search }: TableProps) {
       {/* Search and Filter Info */}
       {(search || selectedCategory !== 'All') && (
         <div style={{ 
-          padding: '0.75rem 1rem', 
-          backgroundColor: darkMode ? '#1e40af' : '#e3f2fd',
-          borderRadius: '8px',
-          marginBottom: '1rem',
-          border: `1px solid ${darkMode ? '#3b82f6' : '#2196F3'}`,
-          color: darkMode ? '#dbeafe' : '#1565c0',
+          padding: '1rem 1.5rem', 
+          backgroundColor: '#f7fafc',
+          borderRadius: '12px',
+          marginBottom: '1.5rem',
+          border: '2px solid #e2e8f0',
+          color: '#1a202c',
           fontWeight: '600',
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
         }}>
           <span>
             🔍 {search && `Searching: "${search}"`} 
@@ -341,7 +320,7 @@ export default function AdvancedTable({ search }: TableProps) {
         flexWrap: 'wrap',
         alignItems: 'center'
       }}>
-        <FaFilter style={{ color: darkMode ? '#9ca3af' : '#6b7280' }} />
+        <FaFilter style={{ color: '#4a5568' }} />
         <button
           onClick={() => setSelectedCategory('All')}
           style={{
@@ -350,8 +329,8 @@ export default function AdvancedTable({ search }: TableProps) {
             border: 'none',
             cursor: 'pointer',
             fontWeight: '600',
-            backgroundColor: selectedCategory === 'All' ? '#3b82f6' : (darkMode ? '#374151' : '#e5e7eb'),
-            color: selectedCategory === 'All' ? 'white' : (darkMode ? '#f9fafb' : '#374151'),
+            backgroundColor: selectedCategory === 'All' ? '#1a202c' : '#e2e8f0',
+            color: selectedCategory === 'All' ? '#ffffff' : '#1a202c',
           }}
         >
           All ({links.length})
@@ -366,8 +345,8 @@ export default function AdvancedTable({ search }: TableProps) {
               border: 'none',
               cursor: 'pointer',
               fontWeight: '600',
-              backgroundColor: selectedCategory === cat.name ? cat.color : (darkMode ? '#374151' : '#e5e7eb'),
-              color: selectedCategory === cat.name ? 'white' : (darkMode ? '#f9fafb' : '#374151'),
+              backgroundColor: selectedCategory === cat.name ? cat.color : '#e2e8f0',
+              color: selectedCategory === cat.name ? '#ffffff' : '#1a202c',
             }}
           >
             {cat.name} ({links.filter(l => l.category === cat.name).length})
@@ -376,8 +355,8 @@ export default function AdvancedTable({ search }: TableProps) {
       </div>
 
       {/* Form Section */}
-      <div className="form-section" style={{ backgroundColor: darkMode ? '#374151' : 'white' }}>
-        <h3 style={{ marginBottom: '1rem', color: darkMode ? '#f9fafb' : '#1f2937' }}>
+      <div className="form-section">
+        <h3 style={{ marginBottom: '1.5rem', color: '#1a202c', fontSize: '1.5rem', fontWeight: '700' }}>
           {editId !== null ? '✏️ Edit Link' : '➕ Add New Link'}
         </h3>
         
@@ -386,15 +365,15 @@ export default function AdvancedTable({ search }: TableProps) {
           <Input name="title" text="Title *" value={form.title} onChange={handleChange} />
           <Input name="url" text="URL *" value={form.url} onChange={handleChange} />
           <div className="input-group">
-            <label className="input-label" style={{ color: darkMode ? '#f9fafb' : '#374151' }}>Category</label>
+            <label className="input-label">Category</label>
             <select
               name="category"
               value={form.category}
               onChange={handleChange}
               className="input-field"
               style={{ 
-                backgroundColor: darkMode ? '#1f2937' : 'white',
-                color: darkMode ? '#f9fafb' : '#374151'
+                backgroundColor: '#ffffff',
+                color: '#1a202c'
               }}
             >
               {CATEGORIES.map(cat => (
@@ -434,42 +413,42 @@ export default function AdvancedTable({ search }: TableProps) {
       {/* Links Table */}
       {filteredLinks.length > 0 ? (
         <div style={{ overflowX: 'auto' }}>
-          <table className="links-table" style={{ backgroundColor: darkMode ? '#374151' : 'white' }}>
-            <thead style={{ backgroundColor: darkMode ? '#1f2937' : '#f9fafb' }}>
+          <table className="links-table">
+            <thead>
               <tr>
-                <th style={{ color: darkMode ? '#f9fafb' : '#6b7280' }}>Favicon</th>
+                <th>Favicon</th>
                 <th 
                   onClick={() => toggleSort('tag')}
-                  style={{ cursor: 'pointer', color: darkMode ? '#f9fafb' : '#6b7280' }}
+                  style={{ cursor: 'pointer' }}
                 >
                   Tag {sortField === 'tag' && (sortOrder === 'asc' ? <FaSortAmountUp /> : <FaSortAmountDown />)}
                 </th>
                 <th 
                   onClick={() => toggleSort('title')}
-                  style={{ cursor: 'pointer', color: darkMode ? '#f9fafb' : '#6b7280' }}
+                  style={{ cursor: 'pointer' }}
                 >
                   Title {sortField === 'title' && (sortOrder === 'asc' ? <FaSortAmountUp /> : <FaSortAmountDown />)}
                 </th>
-                <th style={{ color: darkMode ? '#f9fafb' : '#6b7280' }}>Link</th>
-                <th style={{ color: darkMode ? '#f9fafb' : '#6b7280' }}>Description</th>
+                <th>Link</th>
+                <th>Description</th>
                 <th 
                   onClick={() => toggleSort('category')}
-                  style={{ cursor: 'pointer', color: darkMode ? '#f9fafb' : '#6b7280' }}
+                  style={{ cursor: 'pointer' }}
                 >
                   Category {sortField === 'category' && (sortOrder === 'asc' ? <FaSortAmountUp /> : <FaSortAmountDown />)}
                 </th>
                 <th 
                   onClick={() => toggleSort('createdAt')}
-                  style={{ cursor: 'pointer', color: darkMode ? '#f9fafb' : '#6b7280' }}
+                  style={{ cursor: 'pointer' }}
                 >
                   Created {sortField === 'createdAt' && (sortOrder === 'asc' ? <FaSortAmountUp /> : <FaSortAmountDown />)}
                 </th>
-                <th style={{ color: darkMode ? '#f9fafb' : '#6b7280' }}>Actions</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {filteredLinks.map((link) => (
-                <tr key={link.id} style={{ backgroundColor: darkMode ? '#374151' : 'white' }}>
+                <tr key={link.id}>
                   <td>
                     {link.favicon && (
                       <img 
@@ -483,7 +462,7 @@ export default function AdvancedTable({ search }: TableProps) {
                   <td>
                     {link.tag && <span className="tag">{link.tag}</span>}
                   </td>
-                  <td className="link-title" style={{ color: darkMode ? '#f9fafb' : '#111827' }}>
+                  <td className="link-title">
                     {link.title}
                   </td>
                   <td>
@@ -497,7 +476,7 @@ export default function AdvancedTable({ search }: TableProps) {
                       🔗 Visit
                     </a>
                   </td>
-                  <td className="link-description" title={link.description} style={{ color: darkMode ? '#d1d5db' : '#6b7280' }}>
+                  <td className="link-description" title={link.description}>
                     {link.description}
                   </td>
                   <td>
@@ -515,7 +494,7 @@ export default function AdvancedTable({ search }: TableProps) {
                       {link.category}
                     </span>
                   </td>
-                  <td style={{ fontSize: '0.75rem', color: darkMode ? '#9ca3af' : '#6b7280' }}>
+                  <td style={{ fontSize: '0.75rem' }}>
                     {new Date(link.createdAt).toLocaleDateString()}
                   </td>
                   <td>
@@ -523,14 +502,12 @@ export default function AdvancedTable({ search }: TableProps) {
                       <button
                         className="btn btn-green"
                         onClick={() => editLink(link.id)}
-                        style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}
                       >
                         Edit
                       </button>
                       <button
                         className="btn btn-red"
                         onClick={() => deleteLink(link.id)}
-                        style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}
                       >
                         Delete
                       </button>
@@ -545,10 +522,11 @@ export default function AdvancedTable({ search }: TableProps) {
         <div style={{
           padding: '3rem',
           textAlign: 'center',
-          backgroundColor: darkMode ? '#374151' : (search || selectedCategory !== 'All' ? '#fff3cd' : '#f9fafb'),
-          borderRadius: '8px',
-          border: `1px solid ${darkMode ? '#4b5563' : (search || selectedCategory !== 'All' ? '#ffc107' : '#e5e7eb')}`,
-          color: darkMode ? '#f9fafb' : '#856404'
+          backgroundColor: '#f7fafc',
+          borderRadius: '16px',
+          border: '2px solid #e2e8f0',
+          color: '#1a202c',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
         }}>
           {search || selectedCategory !== 'All' ? (
             <>

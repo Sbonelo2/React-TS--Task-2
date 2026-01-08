@@ -9,14 +9,18 @@ interface Props {
 
 export default function Input({ name, text, value, onChange }: Props) {
   return (
-    <div>
+    <div className="input-group">
+      <label className="input-label" htmlFor={name}>
+        {text}
+      </label>
       <input
         type="text"
+        id={name}
         name={name}
         placeholder={text}
         value={value}
         onChange={onChange}
-        style={{ margin: "0.5rem", padding: "0.5rem" }}
+        className="input-field"
       />
     </div>
   );
