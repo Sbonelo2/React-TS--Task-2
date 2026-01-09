@@ -154,7 +154,7 @@ a:hover::after {
 }
 
 .btn-green:hover {
-  color: #ffffff !important;
+  color: #1a202c;
   transform: translateY(-3px);
   box-shadow: 0 20px 25px -5px rgba(26, 32, 44, 0.3);
 }
@@ -192,7 +192,7 @@ a:hover::after {
 }
 
 .btn-secondary:hover {
-  color: #1a202c !important;
+  color: #ffffff !important;
   border-color: #1a202c;
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 20px 25px -5px rgba(26, 32, 44, 0.25);

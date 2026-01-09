@@ -44,25 +44,80 @@ export default function AdvancedTable({ search }: TableProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [showStats, setShowStats] = useState(false);
 
-  // Load from localStorage
+  // ✅ ADD THIS FLAG
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+  // Simple and direct localStorage implementation
   useEffect(() => {
-    const stored = localStorage.getItem("links");
-    if (stored) {
-      const parsedLinks = JSON.parse(stored);
-      // Migrate old data without category
-      const migratedLinks = parsedLinks.map((link: any) => ({
-        ...link,
-        category: link.category || 'Other',
-        createdAt: link.createdAt || new Date().toISOString(),
-      }));
-      setLinks(migratedLinks);
+    console.log("=== PAGE LOADED ===");
+    
+    // Load links
+    try {
+      const storedLinks = localStorage.getItem("links");
+      console.log("Raw localStorage data:", storedLinks);
+      
+      if (storedLinks) {
+        const parsed = JSON.parse(storedLinks);
+        console.log("Parsed links:", parsed);
+        setLinks(parsed);
+      } else {
+        console.log("No stored links found");
+        setLinks([]);
+      }
+    } catch (error) {
+      console.error("Error loading links:", error);
+      setLinks([]);
     }
+    
+    // Load form data
+    try {
+      const storedForm = localStorage.getItem("formData");
+      console.log("Raw form data:", storedForm);
+      
+      if (storedForm) {
+        const parsed = JSON.parse(storedForm);
+        console.log("Parsed form:", parsed);
+        setForm(parsed);
+      } else {
+        console.log("No stored form found");
+      }
+    } catch (error) {
+      console.error("Error loading form:", error);
+    }
+    
+    // ✅ VERY IMPORTANT - Set loaded flag
+    setHasLoaded(true);
   }, []);
 
-  // Save to localStorage whenever links change
+  // Simple save implementation (GUARDED)
   useEffect(() => {
-    localStorage.setItem("links", JSON.stringify(links));
-  }, [links]);
+    if (!hasLoaded) return;
+    
+    console.log("=== SAVING LINKS ===");
+    console.log("Current links array:", links);
+    
+    try {
+      localStorage.setItem("links", JSON.stringify(links));
+      console.log("Links saved to localStorage");
+    } catch (error) {
+      console.error("Error saving links:", error);
+    }
+  }, [links, hasLoaded]);
+
+  // Simple form save (GUARDED)
+  useEffect(() => {
+    if (!hasLoaded) return;
+    
+    console.log("=== SAVING FORM ===");
+    console.log("Current form:", form);
+    
+    try {
+      localStorage.setItem("formData", JSON.stringify(form));
+      console.log("Form saved to localStorage");
+    } catch (error) {
+      console.error("Error saving form:", error);
+    }
+  }, [form, hasLoaded]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -103,6 +158,8 @@ export default function AdvancedTable({ search }: TableProps) {
         prev.map((l) => (l.id === editId ? { ...l, ...form } : l))
       );
       setEditId(null);
+      // Clear form after update for easy adding of new links
+      setForm({ tag: "", title: "", url: "", description: "", category: "Other" });
     } else {
       const newLink: LinkItem = {
         id: Date.now(),
@@ -111,8 +168,9 @@ export default function AdvancedTable({ search }: TableProps) {
         favicon: getFaviconUrl(form.url),
       };
       setLinks((prev) => [...prev, newLink]);
+      // Clear form after adding for easy adding of multiple links
+      setForm({ tag: "", title: "", url: "", description: "", category: "Other" });
     }
-    setForm({ tag: "", title: "", url: "", description: "", category: "Other" });
   };
 
   const editLink = (id: number) => {
@@ -134,7 +192,6 @@ export default function AdvancedTable({ search }: TableProps) {
       setLinks((prev) => prev.filter((l) => l.id !== id));
     }
   };
-
 
   // Toggle sort
   const toggleSort = (field: SortField) => {
